@@ -1,11 +1,11 @@
 const navItems = [
     {
       name: "Work",
-      path: "/#skills",
+      path: "/",
       subMenuItems: [
-        { id: 1, cName: "submenu-item", name: "Skills", link: "#skills" },
-        { id: 2, cName: "submenu-item", name: "Experience", link: "#experience" },
-        { id: 3, cName: "submenu-item", name: "Projects", link: "#projects" }
+        { id: 1, cName: "submenu-item", name: "Skills", link: "/#skills" },
+        { id: 2, cName: "submenu-item", name: "Experience", link: "/#experience" },
+        { id: 3, cName: "submenu-item", name: "Projects", link: "/#projects" }
       ]
     },
      {    
@@ -13,8 +13,8 @@ const navItems = [
       path: "/life/photography",
       subMenuItems: [
         { id: 1, cName: "submenu-item", name: "Photography", link: "/life/photography" },
-        { id: 2, cName: "submenu-item", name: "Travel", link: "" },
-        { id: 3, cName: "submenu-item", name: "Sports", link: "" }
+        { id: 2, cName: "submenu-item", name: "Travel", link: "/life/travel" },
+        { id: 3, cName: "submenu-item", name: "Sports", link: "/life/sports" }
       ]
     }
   ];
