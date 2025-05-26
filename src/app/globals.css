@@ -129,10 +129,11 @@ body {
     }
 
     nav.desktop {
-      @apply hidden lg:flex items-center;
+      /* @apply hidden lg:flex; */
 
       ul {
         @apply flex space-x-8;
+
 
         li {
           @apply text-white-50 relative;
@@ -144,7 +145,13 @@ body {
           .underline {
             @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full;
           }
+
+          /* .submenu {
+            @apply flex-col top-20 left-0 absolute hidden
+          } */
+
         }
+        
       }
     }
 

@@ -1,11 +1,14 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { navLinks } from "../constants";
+import { navItems } from "../constants";
+import Dropdown from "./Dropdown";
+import Link from 'next/link';
 
 const NavBar = () => {
   // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
   useEffect(() => {
     // create an event listener for when the user scrolls
@@ -32,22 +35,26 @@ const NavBar = () => {
 
         <nav className="desktop">
           <ul>
-            {navLinks.map(({ link, name }) => (
-              <li key={name} className="group">
-                <a href={link}>
-                  <span>{name}</span>
-                  <span className="underline" />
-                </a>
+            {navItems.map(item => (
+              <li key={item.name} className="relative group">
+                <Link href={item.path}>{item.name}</Link>
+                <ul className="submenu hidden absolute left-0 top-full group-hover:flex flex-col bg-black-100 text-white-50 shadow-lg rounded z-50">
+                  {item.subMenuItems.map(subItem => (
+                    <li key={subItem.name} className={subItem.cName}>
+                      <Link href={subItem.link}>{subItem.name}</Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
         </nav>
 
-        {/* <a href="#contact" className="contact-btn group">
+        <a href="#contact" className="contact-btn group">
           <div className="inner">
             <span>Contact me</span>
           </div>
-        </a> */}
+        </a>
       </div>
     </header>
   );

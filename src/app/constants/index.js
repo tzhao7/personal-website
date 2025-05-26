@@ -1,20 +1,22 @@
-const navLinks = [
+const navItems = [
     {
       name: "Work",
-      link: "#work",
+      path: "/#skills",
+      subMenuItems: [
+        { id: 1, cName: "submenu-item", name: "Skills", link: "#skills" },
+        { id: 2, cName: "submenu-item", name: "Experience", link: "#experience" },
+        { id: 3, cName: "submenu-item", name: "Projects", link: "#projects" }
+      ]
     },
-    {
-      name: "Experience",
-      link: "#experience",
-    },
-    {
-      name: "Skills",
-      link: "#skills",
-    },
-    {
-      name: "Interests",
-      link: "#interests",
-    },
+     {    
+      name: "Life",
+      path: "/life/photography",
+      subMenuItems: [
+        { id: 1, cName: "submenu-item", name: "Photography", link: "/life/photography" },
+        { id: 2, cName: "submenu-item", name: "Travel", link: "" },
+        { id: 3, cName: "submenu-item", name: "Sports", link: "" }
+      ]
+    }
   ];
   
   const words = [
@@ -85,8 +87,8 @@ const navLinks = [
     },
   ];
   
+  // Key Skills to Add - React, Python, Spring Java/Boot, CI/CD (Kubernetes, Docker, Jenkins), Node.js, AWS
   const techStackIcons = [
-    // Key Skills 
     {
       name: "React Developer",
       modelPath: "/models/react_logo-transformed.glb",
@@ -202,5 +204,5 @@ const navLinks = [
     socialImgs,
     techStackIcons,
     techStackImgs,
-    navLinks,
+    navItems
   };
