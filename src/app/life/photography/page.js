@@ -1,33 +1,43 @@
-"use client"
-import NavBar from "../../components/NavBar";
+"use client";
 import Grid from "../../components/Grid";
-import { search, mapImageResources } from "@/lib/cloudinary";
-import { useEffect } from "react";
+import useSWR from 'swr';
+import { mapImageResources } from "@/lib/cloudinary";
+import Image from "next/image";
 
+export default function Home() {
+  const fetcher = (url) => fetch(url).then(res => res.json());
+  const { data, error } = useSWR('/api/search', fetcher);
 
-export default async function Home() {
-  // const fetcher = (url) => fetch(url).then(res => res.json()); 
-  // const { data } = useSWR('/api/imageReader', fetcher);
-  // console.log('data', data);
+  if (error) {
+    return <div className="text-red-500">Failed to load images. Please try again later.</div>;
+  }
 
-  const results = await search();
-  
-  const {resources, next_cursor: nextCursor, total_count: totalCount} = results;
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  const { resources, next_cursor: nextCursor, total_count: totalCount } = data;
   const images = mapImageResources(resources);
-  console.log('results', results);
-
-  // useEffect(() => {
-  //   async function run() {
-  //     const result = await fetch('/api/search').then(r => r.json());
-  //     console.log('result', result);
-  //   }
-  // }, []);
-  
 
   return (
-    <>
-      <div>Welcome to my photo gallery</div>
-      {images === undefined ? "Loading..." : <Grid images={images} defaultNextCursor={nextCursor} defaultTotalCount={totalCount ? totalCount : images.length} />}
-    </>
+    <main className="pt-24"> {/* pt-24 = 6rem = 96px, adjust as needed */}
+      <div className="mb-4 flex justify-center">
+      <Image
+        src="/images/edc.jpg"
+        alt="Profile"
+        width={96}
+        height={96}
+        className="rounded-full border-4 border-white shadow-lg object-cover"
+      />
+    </div>
+    <div className="mb-6 text-2xl font-bold text-center">Welcome to my photo gallery</div>
+
+      <Grid
+        images={images}
+        defaultNextCursor={nextCursor}
+        defaultTotalCount={totalCount ? totalCount : images.length}
+      />
+    </main>
+  
   );
 }

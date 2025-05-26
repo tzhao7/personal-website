@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { navItems } from "../constants";
-import Dropdown from "./Dropdown";
 import Link from 'next/link';
 
 const NavBar = () => {
