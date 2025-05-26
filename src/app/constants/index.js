@@ -90,7 +90,7 @@ const navItems = [
   // Key Skills to Add - React, Python, Spring Java/Boot, CI/CD (Kubernetes, Docker, Jenkins), Node.js, AWS
   const techStackIcons = [
     {
-      name: "React Developer",
+      name: "React",
       modelPath: "/models/react_logo-transformed.glb",
       scale: 1,
       rotation: [0, 0, 0],
@@ -102,7 +102,7 @@ const navItems = [
       rotation: [0, 0, 0],
     },
     {
-      name: "Backend Developer",
+      name: "Spring Java",
       modelPath: "/models/node-transformed.glb",
       scale: 5,
       rotation: [0, -Math.PI / 2, 0],
@@ -112,12 +112,6 @@ const navItems = [
       modelPath: "/models/three.js-transformed.glb",
       scale: 0.05,
       rotation: [0, 0, 0],
-    },
-    {
-      name: "Project Manager",
-      modelPath: "/models/git-svg-transformed.glb",
-      scale: 0.05,
-      rotation: [0, -Math.PI / 4, 0],
     },
   ];
   
@@ -170,6 +164,7 @@ const navItems = [
   ];
   
   const testimonials = [
+    {},
     {},
     {}
   ];

@@ -1,8 +1,8 @@
-import Image from "next/image";
+"use client";
 import Hero from "./sections/Hero";
-import FeatureCards from "./sections/FeatureCards";
 import Experience from "./sections/Experience";
 import TechStack from "./sections/TechStack";
+import ShowcaseSection from "./sections/ShowcaseSection";
 
 export default function Home() {
 
@@ -12,6 +12,7 @@ export default function Home() {
       <TechStack />
       {/* <FeatureCards /> */}
       <Experience />
+      <ShowcaseSection />
     </>
   );
 }
